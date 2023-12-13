@@ -414,6 +414,27 @@ extern mp_obj_t CosmicUnicorn_clear(mp_obj_t self_in) {
     return mp_const_none;
 }
 
+extern mp_obj_t CosmicUnicorn_set_pixel(mp_uint_t n_args, const mp_obj_t *args) {
+    _CosmicUnicorn_obj_t *self = MP_OBJ_TO_PTR2(args[0], _CosmicUnicorn_obj_t);
+
+    int x = mp_obj_get_int(args[1]);
+    int y = mp_obj_get_int(args[2]);
+    int r = mp_obj_get_int(args[3]);
+    int g = mp_obj_get_int(args[4]);
+    int b = mp_obj_get_int(args[5]);
+
+    if(x < 0 || x >= CosmicUnicorn::WIDTH || y < 0 || y >= CosmicUnicorn::HEIGHT) {
+        mp_raise_ValueError("x or y out of range.");
+    }
+
+    if(r < 0 || r > 255) mp_raise_ValueError("r out of range. Expected 0 to 255");
+    if(g < 0 || g > 255) mp_raise_ValueError("g out of range. Expected 0 to 255");
+    if(b < 0 || b > 255) mp_raise_ValueError("b out of range. Expected 0 to 255");
+
+    self->cosmic->set_pixel(x, y, r, g, b);
+    return mp_const_none;
+}
+
 extern mp_obj_t CosmicUnicorn_update(mp_obj_t self_in, mp_obj_t graphics_in) {
     _CosmicUnicorn_obj_t *self = MP_OBJ_TO_PTR2(self_in, _CosmicUnicorn_obj_t);
     ModPicoGraphics_obj_t *picographics = MP_OBJ_TO_PTR2(graphics_in, ModPicoGraphics_obj_t);

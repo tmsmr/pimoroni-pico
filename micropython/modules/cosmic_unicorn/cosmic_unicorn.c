@@ -20,6 +20,7 @@ MP_DEFINE_CONST_FUN_OBJ_KW(Channel_play_tone_obj, 2, Channel_play_tone);
 
 MP_DEFINE_CONST_FUN_OBJ_1(CosmicUnicorn___del___obj, CosmicUnicorn___del__);
 MP_DEFINE_CONST_FUN_OBJ_1(CosmicUnicorn_clear_obj, CosmicUnicorn_clear);
+MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(CosmicUnicorn_set_pixel_obj, 6, 6, CosmicUnicorn_set_pixel);
 MP_DEFINE_CONST_FUN_OBJ_2(CosmicUnicorn_update_obj, CosmicUnicorn_update);
 MP_DEFINE_CONST_FUN_OBJ_2(CosmicUnicorn_set_brightness_obj, CosmicUnicorn_set_brightness);
 MP_DEFINE_CONST_FUN_OBJ_1(CosmicUnicorn_get_brightness_obj, CosmicUnicorn_get_brightness);
@@ -62,6 +63,7 @@ STATIC const mp_rom_map_elem_t Channel_locals_dict_table[] = {
 STATIC const mp_rom_map_elem_t CosmicUnicorn_locals_dict_table[] = {
     { MP_ROM_QSTR(MP_QSTR___del__), MP_ROM_PTR(&CosmicUnicorn___del___obj) },
     { MP_ROM_QSTR(MP_QSTR_clear), MP_ROM_PTR(&CosmicUnicorn_clear_obj) },
+    { MP_ROM_QSTR(MP_QSTR_set_pixel), MP_ROM_PTR(&CosmicUnicorn_set_pixel_obj) },
     { MP_ROM_QSTR(MP_QSTR_update), MP_ROM_PTR(&CosmicUnicorn_update_obj) },
     { MP_ROM_QSTR(MP_QSTR_set_brightness), MP_ROM_PTR(&CosmicUnicorn_set_brightness_obj) },
     { MP_ROM_QSTR(MP_QSTR_get_brightness), MP_ROM_PTR(&CosmicUnicorn_get_brightness_obj) },
